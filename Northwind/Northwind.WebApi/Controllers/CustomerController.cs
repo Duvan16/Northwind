@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Formatters;
-using Microsoft.VisualStudio.Web.CodeGeneration.Contracts.Messaging;
 using Northwind.Models;
 using Northwind.UnitOfWork;
 
@@ -28,9 +26,9 @@ namespace Northwind.WebApi.Controllers
 
         [HttpGet]
         [Route("GetPaginatedCustomer/{page:int}/{rows:int}")]
-        public IActionResult GetPaginatedCustomer(int page,int rows)
+        public IActionResult GetPaginatedCustomer(int page, int rows)
         {
-            return Ok(_unitOfWork.Customer.CustomerPagedList(page,rows));
+            return Ok(_unitOfWork.Customer.CustomerPagedList(page, rows));
         }
 
         [HttpPost]
